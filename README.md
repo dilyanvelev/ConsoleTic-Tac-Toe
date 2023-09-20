@@ -1,6 +1,20 @@
 # Tic-Tac-Toe Game
 
-This is a simple command-line implementation of the classic Tic-Tac-Toe game in Python. It allows two players to take turns and compete to win by forming a row, column, or diagonal of their symbols ('X' or 'O') on a 3x3 game board.
+This is a simple command-line implementation of the classic Tic-Tac-Toe game in Python.
+
+## How to Run
+
+1. Make sure you have Python installed on your system.
+
+2. Clone this repository or download the source code.
+
+3. Open a terminal and navigate to the directory where the script is located.
+
+4. Run the script using the following command: python tic_tac_toe.py
+
+5. Follow the on-screen instructions to play the game.
+
+Enjoy playing Tic-Tac-Toe with a friend!
 
 ## How to Play
 
@@ -20,17 +34,5 @@ This is a simple command-line implementation of the classic Tic-Tac-Toe game in 
 
 8. The game will keep running until you decide to exit.
 
-## How to Run
 
-1. Make sure you have Python installed on your system.
-
-2. Clone this repository or download the source code.
-
-3. Open a terminal and navigate to the directory where the script is located.
-
-4. Run the script using the following command: python tic_tac_toe.py
-
-5. Follow the on-screen instructions to play the game.
-
-Enjoy playing Tic-Tac-Toe with a friend!
 
