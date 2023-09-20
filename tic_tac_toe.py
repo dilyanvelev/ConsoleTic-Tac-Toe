@@ -8,34 +8,38 @@ def check_for_win():
     row_win = any([all(True if pos == player_symbol else False for pos in row) for row in board])
     col_win = any([all(True if board[r][c] == player_symbol else False for r in range(size)) for c in range(size)])
 
-    if any(first_diagonal_win, second_diagonal_win, row_win, col_win):
+    if any([first_diagonal_win, second_diagonal_win, row_win, col_win]):
         print_board()
         print(f"{player_name} won!")
 
         raise SystemExit
 
     players.append(players.pop(0))
-    choose_position()
+
 
 
 def place_symbol(position):
     row, col = (position - 1) // 3, (position - 1) % 3
-
-    board[row][col] = players[0][1]
-    check_for_win()
-    print_board()
-    choose_position()
+    if board[row][col] == players[0][1] or board[row][col] == players[1][1]:
+        print("This position is not empty, choose another one!")
+        choose_position()
+    else:
+        board[row][col] = players[0][1]
+        check_for_win()
+        print_board()
+        choose_position()
 
 
 def choose_position():
     while True:
-        position = input(f"{players[0][0]} choose a free position [1-9]: ")
+        position = int(input(f"{players[0][0]} choose a free position [1-9]: "))
 
-        if any([True if position in row else False for row in board]):
+        if 1 <= position <= len(board) * len(board):
             break
 
         else:
             print(f"{players[0][0]}, please select valid position!")
+
     place_symbol(int(position))
 
 
@@ -44,6 +48,10 @@ def print_board(begin=False):
         print("This is the numeration of the board:")
         [print(f"| {' | '.join(row)} |") for row in board]
         print(f"{players[0][0]} starts first!")
+
+        for row in range(len(board)):
+            for col in range(len(board)):
+                board[row][col] = ' '
 
     else:
         [print(f"| {' | '.join(row)} |") for row in board]
@@ -67,6 +75,7 @@ def start():
     players.append([player_two_name, player_two_symbol])
 
     print_board(begin=True)
+    choose_position()
 
 
 players = []
