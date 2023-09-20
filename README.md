@@ -35,5 +35,9 @@ This is a simple command-line implementation of the classic Tic-Tac-Toe game in 
 
 3. Open a terminal and navigate to the directory where the script is located.
 
-4. Run the script using the following command:
+4. Run the script using the following command: python tic_tac_toe.py
+
+5. Follow the on-screen instructions to play the game.
+
+Enjoy playing Tic-Tac-Toe with a friend!
 
