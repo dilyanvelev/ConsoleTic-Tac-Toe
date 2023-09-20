@@ -20,13 +20,6 @@ This is a simple command-line implementation of the classic Tic-Tac-Toe game in 
 
 8. The game will keep running until you decide to exit.
 
-## Features
-
-- Checks for wins in rows, columns, and diagonals.
-- Validates player input to ensure it's a valid position.
-- Provides a simple and clear representation of the game board.
-- Allows players to choose their symbols.
-
 ## How to Run
 
 1. Make sure you have Python installed on your system.
