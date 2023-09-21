@@ -1,3 +1,10 @@
+from pyfiglet import Figlet
+import speech_recognition as sr
+import time
+
+
+
+
 def check_for_win():
     player_name, player_symbol = players[0]
     size = len(board)
@@ -15,7 +22,6 @@ def check_for_win():
         raise SystemExit
 
     players.append(players.pop(0))
-
 
 
 def place_symbol(position):
@@ -58,8 +64,24 @@ def print_board(begin=False):
 
 
 def start():
-    player_one_name = input("Player one name: ")
-    player_two_name = input("Player two name: ")
+    figlet = Figlet(font='big')
+    print(figlet.renderText("Tic-Tac-Toe"))
+    timer_duration = 4
+    # opening the microphone
+    with sr.Microphone() as source:
+        r = sr.Recognizer()
+
+        print(f"Player one, you have {timer_duration} seconds to say your name:")
+        audio_data = r.record(source, duration=timer_duration)
+        print("Time's up!")
+        player_one_name = r.recognize_google(audio_data)
+        print(f"Hello, {player_one_name}!")
+
+        print(f"Player two, you have {timer_duration} seconds to say your name: ")
+        audio_data = r.record(source, duration=timer_duration)
+        print("Time's up!")
+        player_two_name = r.recognize_google(audio_data)
+        print(f"Hello, {player_two_name}!")
 
     while True:
         player_one_symbol = input(f"{player_one_name} would you like to play with 'X' or 'O'?").upper()
@@ -78,7 +100,9 @@ def start():
     choose_position()
 
 
+
 players = []
 board = [[str(i), str(i + 1), str(i + 2)] for i in range(1, 10, 3)]
 
 start()
+
